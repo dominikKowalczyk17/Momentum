@@ -1,42 +1,42 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-} from "react-native";
-import { Link } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
-import { SafeAreaView } from "react-native-safe-area-context";
+} from 'react-native';
+import { Link } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Przykładowe dane (później zastąpimy rzeczywistymi danymi)
 const lastWorkout = {
-  name: "Upper Body Strength",
+  name: 'Upper Body Strength',
   date: new Date(2025, 2, 10), // 10 marca 2025
   exercises: 5,
   duration: 65, // minut
 };
 
 const workoutTemplates = [
-  { id: "1", name: "Push Day" },
-  { id: "2", name: "Pull Day" },
-  { id: "3", name: "Leg Day" },
-  { id: "4", name: "Full Body" },
+  { id: '1', name: 'Push Day' },
+  { id: '2', name: 'Pull Day' },
+  { id: '3', name: 'Leg Day' },
+  { id: '4', name: 'Full Body' },
 ];
 
 const stats = {
   totalWorkouts: 42,
   thisMonth: 8,
   streak: 3,
-  volume: "+5% w tym tygodniu",
+  volume: '+5% w tym tygodniu',
 };
 
 export default function HomeScreen() {
   // Formatowanie daty w stylu: "10 mar"
   const formatDate = (date: Date) => {
-    return `${date.getDate()} ${date.toLocaleString("pl-PL", {
-      month: "short",
+    return `${date.getDate()} ${date.toLocaleString('pl-PL', {
+      month: 'short',
     })}`;
   };
 
@@ -46,11 +46,11 @@ export default function HomeScreen() {
         {/* Nagłówek */}
         <View style={styles.header}>
           <TouchableOpacity>
-            <Ionicons name="person-circle-outline" size={24} color="#ccc" />
+            <Ionicons name='person-circle-outline' size={24} color='#ccc' />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Momentum</Text>
           <TouchableOpacity>
-            <Ionicons name="notifications-outline" size={24} color="#ccc" />
+            <Ionicons name='notifications-outline' size={24} color='#ccc' />
           </TouchableOpacity>
         </View>
 
@@ -77,22 +77,11 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Szybki start */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Szybki start</Text>
-          <Link href="/workout/create" asChild>
-            <TouchableOpacity style={styles.quickStartButton}>
-              <Ionicons name="add-circle-outline" size={22} color="white" />
-              <Text style={styles.quickStartText}>Nowy trening</Text>
-            </TouchableOpacity>
-          </Link>
-        </View>
-
         {/* Szablony treningowe */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Twoje szablony</Text>
-            <Link href="/workouts" asChild>
+            <Link href='/workouts' asChild>
               <TouchableOpacity>
                 <Text style={styles.seeAllText}>Zobacz wszystkie</Text>
               </TouchableOpacity>
@@ -102,7 +91,7 @@ export default function HomeScreen() {
             {workoutTemplates.map((template) => (
               <TouchableOpacity key={template.id} style={styles.templateCard}>
                 <Text style={styles.templateName}>{template.name}</Text>
-                <Ionicons name="chevron-forward" size={20} color="#aaa" />
+                <Ionicons name='chevron-forward' size={20} color='#aaa' />
               </TouchableOpacity>
             ))}
           </ScrollView>
@@ -138,47 +127,47 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000", // tło ciemne
+    backgroundColor: '#000', // tło ciemne
   },
   header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
   headerTitle: {
     fontSize: 24,
-    fontWeight: "bold",
-    color: "#fff", // biały tekst
+    fontWeight: 'bold',
+    color: '#fff', // biały tekst
   },
   section: {
     padding: 16,
     marginBottom: 8,
   },
   sectionHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 12,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "#fff",
+    fontWeight: 'bold',
+    color: '#fff',
     marginBottom: 12,
   },
   seeAllText: {
-    color: "#5280e2",
+    color: '#5280e2',
     fontSize: 14,
   },
   lastWorkoutCard: {
-    backgroundColor: "#1c1c1e", // ciemny szary dla kart
+    backgroundColor: '#1c1c1e', // ciemny szary dla kart
     borderRadius: 12,
     padding: 16,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    shadowColor: "#000",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
@@ -186,54 +175,40 @@ const styles = StyleSheet.create({
   },
   workoutName: {
     fontSize: 16,
-    fontWeight: "600",
-    color: "#fff",
+    fontWeight: '600',
+    color: '#fff',
     marginBottom: 4,
   },
   workoutDate: {
     fontSize: 14,
-    color: "#aaa",
+    color: '#aaa',
   },
   workoutStats: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   statItem: {
-    alignItems: "center",
+    alignItems: 'center',
     marginLeft: 16,
   },
   statValue: {
     fontSize: 16,
-    fontWeight: "600",
-    color: "#fff",
+    fontWeight: '600',
+    color: '#fff',
   },
   statLabel: {
     fontSize: 12,
-    color: "#aaa",
-  },
-  quickStartButton: {
-    backgroundColor: "#5280e2",
-    borderRadius: 12,
-    paddingVertical: 14,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  quickStartText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "600",
-    marginLeft: 8,
+    color: '#aaa',
   },
   templateCard: {
-    backgroundColor: "#1c1c1e",
+    backgroundColor: '#1c1c1e',
     borderRadius: 12,
     padding: 16,
     marginRight: 12,
     minWidth: 150,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    shadowColor: "#000",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
@@ -241,22 +216,22 @@ const styles = StyleSheet.create({
   },
   templateName: {
     fontSize: 15,
-    fontWeight: "500",
-    color: "#fff",
+    fontWeight: '500',
+    color: '#fff',
   },
   statsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
   },
   statsCard: {
-    backgroundColor: "#1c1c1e",
+    backgroundColor: '#1c1c1e',
     borderRadius: 12,
     padding: 12,
-    width: "48%",
+    width: '48%',
     marginBottom: 12,
-    alignItems: "center",
-    shadowColor: "#000",
+    alignItems: 'center',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
@@ -264,12 +239,12 @@ const styles = StyleSheet.create({
   },
   statsValue: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "#fff",
+    fontWeight: 'bold',
+    color: '#fff',
     marginBottom: 4,
   },
   statsLabel: {
     fontSize: 12,
-    color: "#aaa",
+    color: '#aaa',
   },
 });
