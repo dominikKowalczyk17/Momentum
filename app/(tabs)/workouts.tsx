@@ -121,18 +121,12 @@ export default function WorkoutsScreen() {
       </View>
 
       {activeTab === "templates" ? (
-        <>
-          <FlatList
-            data={workoutTemplates}
-            renderItem={renderTemplateItem}
-            keyExtractor={(item) => item.id}
-            contentContainerStyle={styles.listContainer}
-          />
-          <TouchableOpacity style={styles.createTemplateButton}>
-            <Ionicons name="add-circle-outline" size={20} color="#5280e2" />
-            <Text style={styles.createTemplateText}>Nowy szablon</Text>
-          </TouchableOpacity>
-        </>
+        <FlatList
+          data={workoutTemplates}
+          renderItem={renderTemplateItem}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.listContainer}
+        />
       ) : (
         <FlatList
           data={workoutHistory}
@@ -172,7 +166,6 @@ const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: "row",
     paddingHorizontal: 16,
-    marginVertical: 8,
   },
   tab: {
     paddingVertical: 10,
